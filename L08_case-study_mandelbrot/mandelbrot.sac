@@ -17,7 +17,7 @@ use Fractal_tier2 : all;
 use Stencil_tier3 : all;
 
 inline
-color[ms,ns] stretchRgb( color[m,n] pic, int stretch)
+Color8[ms,ns] stretchRgb( Color8[m,n] pic, int stretch)
 {
   return { iv -> pic[ iv / stretch] | iv < shape(pic) * stretch };
 }

@@ -37,7 +37,8 @@ int, complex escapeTimeAndValue (complex z, int depth)
 inline
 int[m,n], complex[m,n] escapeTimeAndValue ( complex[m,n] plane, int depth)
 {
-    return { iv -> escapeTimeAndValue (plane[iv]) };
+    its, image = { iv -> escapeTimeAndValue (plane[iv], depth) };
+    return (its, image);
 }
 
 
@@ -62,7 +63,7 @@ double[d:shp] normalizedIterationCount(int[d:shp] n, complex[d:shp] zn)
 
 /** <!--*******************************************************************-->
  *
- * @fn color[d:shp] doubleArrayToRGB( double[d:shp] a)
+ * @fn Color8[d:shp] doubleArrayToRGB( double[d:shp] a)
  *
  *   @brief transforms an array of doubles into RGB values, by 
  *          FIRST scaling them into values between 0.0 and 360.0, and
@@ -73,7 +74,7 @@ double[d:shp] normalizedIterationCount(int[d:shp] n, complex[d:shp] zn)
  *   @return RGB values
  *****************************************************************************/
 inline
-Color8::color[d:shp] doubleArrayToRGB( double[d:shp] a)
+Color8::Color8[d:shp] doubleArrayToRGB( double[d:shp] a)
 {
   max = maxval( a);
   min = minval( a);
